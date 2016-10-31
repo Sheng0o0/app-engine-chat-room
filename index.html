@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<head>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
 <style>
   * {
     margin:0;
@@ -7,8 +10,17 @@
     font-family: 'Helvetica';
     font-size: 20px;
     font-weight: bold;
+    /*background-image: url("https://s-media-cache-ak0.pinimg.com/originals/12/7a/1b/127a1b14dcca7b0ea0aa7fdd156d1a1a.jpg"); */
+    color: black;
   }
 
+  #button{
+    height:30px;
+    width:100px;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+  }
   #chat {
     padding: 0 5px;
     height: 100vh;
@@ -25,10 +37,15 @@
     margin: 1em 0;
   }
 </style>
-
+<div class="col-sm-8">
 <div id="chat">
   <div id="messages"></div>
   <input disabled placeholder="Connecting..." id="newmessage"></input>
+  <input type="submit" id="button"></input>
+</div>
+</div>
+<div class="col-sm-4">
+  <h3> Users Online </h3>
 </div>
 
 <!-- Imports jQuery -->
@@ -66,6 +83,12 @@ newmessage.on('keypress', function(e) {
     newmessage.val('');
   };
 });
+
+$("#button").click(function(){
+    $.post('/send', {data: newmessage.val()});
+    newmessage.val('');
+});
+
 
 // Force all focus to the input box.
 newmessage.on('blur', function(e) {
