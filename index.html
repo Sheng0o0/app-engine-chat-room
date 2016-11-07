@@ -73,6 +73,13 @@
     },
     'onerror': function() {}, // No-op.
     'onclose': function() {}, // No-op.
+
+    var msg = m.data;
+    // Replace all instances of /bold in the message
+    msg = msg.replace('/shruggie ','<b>¯\_(ツ)_/¯</b>');
+    // Blindly append the message to the end of the element.
+    messages.append('<p class="message">' + msg + '</p>');
+
   };
 channel.open(handler);
 
@@ -95,12 +102,5 @@ newmessage.on('blur', function(e) {
   newmessage.focus();
 });
 
-'onmessage': function(m) {
-  var msg = m.data;
-  // Replace all instances of /bold in the message
-  msg = msg.replace('/shruggie ','<b>¯\_(ツ)_/¯</b>');
-  // Blindly append the message to the end of the element.
-  messages.append('<p class="message">' + msg + '</p>');
-}
 
 </script>
