@@ -1,7 +1,9 @@
+application: savvy-factor-146721
+version: 1
 runtime: python27
 api_version: 1
 threadsafe: true
-application: savvy-factor-146721
+
 
 inbound_services:
 - channel_presence
