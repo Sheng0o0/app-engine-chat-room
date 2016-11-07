@@ -80,7 +80,7 @@
 
 
       if(msg.includes('green')){
-
+        msg=msg.replace('/green',msg);
         messages.append('<p class="message" style="color:green">' + msg + '</p>');
       }else{
         messages.append('<p class="message">' + msg + '</p>');
