@@ -71,11 +71,20 @@
 
       var msg = m.data;
       // Replace all instances of /bold in the message
-      msg = msg.replace('/shruggie','<b>¯\_(ツ)_/¯</b>');
-      // Blindly append the message to the end of the element.
-      messages.append('<p class="message">' + msg + '</p>');
-      // Blindly append the message to the end of the element.
-      messages.append('<p class="message">' + m.data + '</p>');
+//shruggie
+      msg = msg.replace('/shruggie','<b>¯\\_(ツ)_/¯</b>');
+//dice
+      msg = msg.replace('/dice','<b>¯\\_(ツ)_/¯</b>');
+//huaji
+      msg = msg.replace('/huaji','<img src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/c6/c6cd767ee198f85e79a35ce00fe644a41b0214fa_full.jpg">');
+
+
+      if(msg.includes('green')){
+
+        messages.append('<p class="message" style="color:green">' + msg + '</p>');
+      }else{
+        messages.append('<p class="message">' + msg + '</p>');
+      }
     },
     'onerror': function() {}, // No-op.
     'onclose': function() {}, // No-op.
